@@ -10,7 +10,7 @@ option('official',
 
 option('backtrace',
     type: 'boolean',
-    value: true,
+    value: false,
     description: 'Whether the package is built with backtrace support')
 
 # Will be shown in error messages

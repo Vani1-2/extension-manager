@@ -31,7 +31,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %files -f %{name}.lang
 %license COPYING
 %{_bindir}/extension-manager
-%{_metainfodir}/com.mattjakeman.ExtensionManager.appdata.xml
+%{_metainfodir}/*.xml
 %{_datadir}/applications/com.mattjakeman.ExtensionManager.desktop
 %{_datadir}/glib-2.0/schemas/com.mattjakeman.ExtensionManager.gschema.xml
 %{_datadir}/icons/hicolor/scalable/apps/com.mattjakeman.ExtensionManager.svg

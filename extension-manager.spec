@@ -1,6 +1,6 @@
 Name:           extension-manager
 Version:        0.6.5
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A utility for browsing and installing GNOME Shell Extensions
 License:        GPL-3.0-or-later
 URL:            https://github.com/mjakeman/extension-manager
@@ -42,5 +42,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/symbolic/apps/com.mattjakeman.ExtensionManager-symbolic.svg
 
 %changelog
-* Sat Dec 20 2025 Giovanni <giovannirafanan609@gmail.com> - 0.6.5
-- bundled libbacktrace correctly, as it not available in Fedora repo's
+* Sat Dec 20 2025 Giovanni <giovannirafanan609@gmail.com> - 0.6.5-3
+- enabled meson_option for build with backtrace

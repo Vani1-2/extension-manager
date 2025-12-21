@@ -51,7 +51,7 @@ The core tool supports:
 
 **Via COPR (Fedora):**
 ```shell
-sudo dnf copr enable your-username/extension-manager
+sudo dnf copr enable vaniiiiii/extension-manager
 sudo dnf install extension-manager
 
 ```

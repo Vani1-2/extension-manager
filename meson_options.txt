@@ -10,16 +10,16 @@ option('official',
 
 option('backtrace',
     type: 'boolean',
-    value: false,
+    value: true,
     description: 'Whether the package is built with backtrace support')
 
 # Will be shown in error messages
 option('package',
 	type: 'string',
-	value: 'Unknown Package',
+	value: 'RPM',
 	description: 'The package format being built (e.g. "Flatpak")')
 
 option('distributor',
 	type: 'string',
-	value: 'Unknown Author',
+	value: 'Vani1-2 <giovannirafanan609@gmail.com',
 	description: 'The package distributor (e.g. "Your Name <optional email>")')

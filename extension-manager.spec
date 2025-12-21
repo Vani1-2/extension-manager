@@ -18,10 +18,20 @@ A native tool for browsing, installing, and managing GNOME Shell Extensions.
 %autosetup
 
 mkdir -p subprojects
+rm -rf subprojects/backtrace
 git clone https://github.com/ianlancetaylor/libbacktrace.git subprojects/backtrace
 
 %build
-%meson -Dforce_fallback_for=backtrace
+pushd subprojects/backtrace
+./configure --prefix=$(pwd)/../local-install --enable-shared=no --enable-static=yes --with-pic
+make %{?_smp_mflags}
+make install
+popd
+
+export CFLAGS="$CFLAGS -I$(pwd)/subprojects/local-install/include"
+export LDFLAGS="$LDFLAGS -L$(pwd)/subprojects/local-install/lib"
+
+%meson
 %meson_build
 
 %install

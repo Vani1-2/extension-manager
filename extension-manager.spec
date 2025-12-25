@@ -1,6 +1,6 @@
 Name:           extension-manager
 Version:        0.6.5
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A utility for browsing and installing GNOME Shell Extensions
 License:        GPL-3.0-or-later
 URL:            https://github.com/mjakeman/extension-manager
@@ -9,6 +9,9 @@ Source0:        extension-manager-%{version}.tar.gz
 BuildRequires:  git
 BuildRequires:  meson gcc blueprint-compiler desktop-file-utils libappstream-glib
 BuildRequires:  pkgconfig(gtk4) pkgconfig(libadwaita-1) pkgconfig(libsoup-3.0) pkgconfig(json-glib-1.0)
+
+BuildRequires:  libbacktrace-devel
+
 Requires:       gtk4 libadwaita
 
 %description
@@ -17,20 +20,7 @@ A native tool for browsing, installing, and managing GNOME Shell Extensions.
 %prep
 %autosetup
 
-mkdir -p subprojects
-rm -rf subprojects/backtrace
-git clone https://github.com/ianlancetaylor/libbacktrace.git subprojects/backtrace
-
 %build
-pushd subprojects/backtrace
-./configure --prefix=$(pwd)/../local-install --enable-shared=no --enable-static=yes --with-pic
-make %{?_smp_mflags}
-make install
-popd
-
-export CFLAGS="$CFLAGS -I$(pwd)/subprojects/local-install/include"
-export LDFLAGS="$LDFLAGS -L$(pwd)/subprojects/local-install/lib"
-
 %meson
 %meson_build
 
@@ -52,5 +42,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/symbolic/apps/com.mattjakeman.ExtensionManager-symbolic.svg
 
 %changelog
-* Sat Dec 20 2025 Giovanni <giovannirafanan609@gmail.com> - 0.6.5-3
-- enabled meson_option for build with backtrace
+* Sat Dec 20 2025 Vani1-2 <giovannirafanan609@gmail.com> - 0.6.5-4
+- unbundled libbacktrace (switched to system package)

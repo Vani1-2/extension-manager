@@ -33,7 +33,7 @@ exm_sources = [
 ]
 
 cc = meson.get_compiler('c')
-libbacktrace_dep = cc.find_library('backtrace', required: get_option('backtrace'))
+
 
 exm_deps = [
   dependency('gtk4'),

@@ -21,6 +21,8 @@ else
   version_suffix = ''
 endif
 
+libbacktrace_dep = dependency('libbacktrace', required: get_option('backtrace'))
+
 config_h = configuration_data()
 config_h.set_quoted('APP_VERSION', meson.project_version() + version_suffix)
 config_h.set_quoted('GETTEXT_PACKAGE', 'extension-manager')
@@ -30,7 +32,7 @@ config_h.set_quoted('APP_ID', app_id)
 config_h.set_quoted('PKG_NAME', get_option('package'))
 config_h.set_quoted('PKG_DISTRIBUTOR', get_option('distributor'))
 config_h.set10('IS_OFFICIAL', get_option('official'))
-config_h.set10('WITH_BACKTRACE', get_option('backtrace'))
+config_h.set10('WITH_BACKTRACE', libbacktrace_dep.found())
 configure_file(
   output: 'exm-config.h',
   configuration: config_h,

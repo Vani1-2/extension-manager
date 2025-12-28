@@ -31,7 +31,7 @@
 This repository is a fork of the excellent **Extension Manager** originally created by **Matthew Jakeman**.
 
 **Changes in this version:**
-*  Bundled libbacktrace support(as it is not available in fedora)
+*  `libbacktrace` is packaged as an rpm and is a dependency of extension-manager
 
 
 ## Features

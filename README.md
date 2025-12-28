@@ -47,7 +47,7 @@ The core tool supports:
 ## 💻 Installing
 
 ### Installing this Fork
-[Provide instructions for your specific fork here, for example:]
+
 
 **Via COPR (Fedora):**
 ```shell
